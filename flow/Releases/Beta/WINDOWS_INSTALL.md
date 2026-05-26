@@ -31,6 +31,10 @@ To do that:
 Then run:
 
 ```powershell
+wsl --install
+```
+if not work try:
+```
 wsl --install -d Ubuntu
 ```
 
