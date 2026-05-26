@@ -16,16 +16,17 @@ Instead of typing the same sequence again and again, Flow lets you record it onc
 
 ## Project Information
 
-| Item              | Details                             |
-|-------------------|-------------------------------------|
-| Project Name      | Flow CLI Tool                       |
-| Release Type      | Beta                                |
-| Author            | Lin Thant Kyaw                      |
-| Feedback Email    | linthantkyaw2002@gmail.com          |
-| GitHub            | https://github.com/linthantkyaw2002 |
-| License           | Beta / Proprietary                  |
-| Supported Shells  | Bash, Zsh                           |
-| Supported Systems | macOS, Linux, WSL                   |
+| Item              | Details                                                                          |
+|-------------------|----------------------------------------------------------------------------------|
+| Project Name      | Flow CLI Tool                                                                    |
+| Release Type      | Beta                                                                             |
+| Author            | Lin Thant Kyaw                                                                   |
+| Repository        | https://github.com/linthantkyaw2002/Easyshell/tree/main/flow                     |
+| Issues            | https://github.com/linthantkyaw2002/Easyshell/issues                             |
+| Bug Reports       | https://github.com/linthantkyaw2002/Easyshell/issues/new/choose                  |
+| License           | Beta / Proprietary                                                               |
+| Supported Shells  | Bash, Zsh                                                                        |
+| Supported Systems | macOS, Linux, WSL                                                                |
 
 ---
 
@@ -979,7 +980,7 @@ This can happen when shell aliases are expanded by the shell hook.
 Check your alias:
 
 ```bash
-alias ls
+ls
 ```
 
 If needed, reinstall Flow and restart Bash:
@@ -1017,15 +1018,23 @@ exec bash
 
 Flow is in beta, and feedback is welcome.
 
-For bugs, suggestions, and testing reports, contact: linthantkyaw2002@gmail.com
+Please report bugs, unexpected behavior, or suggestions through GitHub Issues:
+
+- Bug reports or Feature requests: https://github.com/linthantkyaw2002/Easyshell/issues/new/choose
+- For discusoins: https://github.com/linthantkyaw2002/Easyshell/discussions
+
+For private or security-related contact, email: linthantkyaw2002@gmail.com
 
 GitHub profile: https://github.com/linthantkyaw2002
 
-When reporting an issue, please include:
+When reporting a bug, please include:
 
-- Operating system
-- Shell type: Bash or Zsh
-- Flow command used
+- Operating system, for example Ubuntu, Debian, macOS, or WSL
+- Terminal app, for example Windows Terminal, GNOME Terminal, iTerm2, or VS Code terminal
+- Shell type, for example Bash or Zsh
+- EasyShell / Flow version
+- Installation method
+- Command used
 - Expected behavior
 - Actual behavior
 - Terminal output or error message
@@ -1049,5 +1058,5 @@ See the `LICENSE` file for full terms.
 
 **Lin Thant Kyaw**
 
-- Feedback: `linthantkyaw2002@gmail.com`
+- Private contact: `linthantkyaw2002@gmail.com`
 - GitHub: `https://github.com/linthantkyaw2002`
