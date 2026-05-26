@@ -403,6 +403,7 @@ flow delist 0, 2
 | `flow copy <old_build> <new_build>`            | Copy a saved build into a new build.                       |
 
 ---
+For more Usage examples: https://github.com/linthantkyaw2002/Easyshell/blob/main/flow/Releases/Beta/USAGE.md 
 
 ## Full Command Reference
 
