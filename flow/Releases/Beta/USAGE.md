@@ -664,6 +664,231 @@ flow run git-check -l
 
 ---
 
+## Example 9: Run tester files from different directories
+
+This example is useful when your project has several tester files in different folders.
+
+Example project structure:
+
+```text
+my-project/
+├── Makefile
+├── program
+├── src/
+├── tests/
+│   ├── basic/
+│   │   └── test_basic.sh
+│   ├── parser/
+│   │   └── test_parser.sh
+│   ├── memory/
+│   │   └── test_memory.sh
+│   └── bonus/
+│       └── test_bonus.sh
+```
+
+Instead of manually running every tester file one by one:
+
+```bash
+make re
+bash tests/basic/test_basic.sh
+bash tests/parser/test_parser.sh
+bash tests/memory/test_memory.sh
+bash tests/bonus/test_bonus.sh
+```
+
+you can save the whole testing workflow with EasyShell / Flow.
+
+Go to your project root:
+
+```bash
+cd my-project
+```
+
+Start recording:
+
+```bash
+flow start
+```
+
+Run your build and tester commands:
+
+```bash
+make re
+bash tests/basic/test_basic.sh
+bash tests/parser/test_parser.sh
+bash tests/memory/test_memory.sh
+bash tests/bonus/test_bonus.sh
+```
+
+Stop recording:
+
+```bash
+flow stop
+```
+
+Check what was recorded:
+
+```bash
+flow list
+```
+
+Save the workflow:
+
+```bash
+flow build run-testers
+```
+
+Now you can run all testers anytime:
+
+```bash
+flow run run-testers
+```
+
+If you are inside another copy of the same project structure, run it locally:
+
+```bash
+flow run run-testers -l
+```
+
+The `-l` flag tells Flow to run the saved workflow from your current directory.
+
+---
+
+### Running only one tester
+
+If your saved build looks like this:
+
+```text
+[0] make re
+[1] bash tests/basic/test_basic.sh
+[2] bash tests/parser/test_parser.sh
+[3] bash tests/memory/test_memory.sh
+[4] bash tests/bonus/test_bonus.sh
+```
+
+Run only the basic tester:
+
+```bash
+flow run run-testers 1 -l
+```
+
+Run only parser and memory testers:
+
+```bash
+flow run run-testers 2,3 -l
+```
+
+Run the full tester workflow:
+
+```bash
+flow run run-testers -l
+```
+
+Do not add spaces in index lists.
+
+Correct:
+
+```bash
+flow run run-testers 2,3 -l
+```
+
+Incorrect:
+
+```bash
+flow run run-testers 2, 3 -l
+```
+
+---
+
+### Running external testers from outside the project
+
+Sometimes tester folders are outside your project.
+
+Example structure:
+
+```text
+workspace/
+├── my-project/
+│   ├── Makefile
+│   └── program
+├── basic-tester/
+│   └── run.sh
+├── parser-tester/
+│   └── run.sh
+└── memory-tester/
+    └── run.sh
+```
+
+From inside your project:
+
+```bash
+cd workspace/my-project
+```
+
+Start recording:
+
+```bash
+flow start
+```
+
+Run the external testers:
+
+```bash
+make re
+sh -c 'PROJECT_DIR="$(pwd)"; cd ../basic-tester && ./run.sh "$PROJECT_DIR/program"'
+sh -c 'PROJECT_DIR="$(pwd)"; cd ../parser-tester && ./run.sh "$PROJECT_DIR/program"'
+sh -c 'PROJECT_DIR="$(pwd)"; cd ../memory-tester && ./run.sh "$PROJECT_DIR/program"'
+```
+
+Stop recording:
+
+```bash
+flow stop
+```
+
+Save it:
+
+```bash
+flow build external-testers
+```
+
+Run it again from the same project:
+
+```bash
+flow run external-testers
+```
+
+Run it from another project with the same folder layout:
+
+```bash
+flow run external-testers -l
+```
+
+This is useful when you keep tester tools in separate directories next to your project.
+
+---
+
+### Recommended tester workflows
+
+You can save different tester workflows for different purposes:
+
+```bash
+flow build test-basic
+flow build test-parser
+flow build test-memory
+flow build test-bonus
+flow build test-all
+```
+
+Example usage:
+
+```bash
+flow run test-basic -l
+flow run test-memory -l
+flow run test-all -l
+```
+
+For testing workflows, using `-l` is usually recommended because you often want to run the testers in the project folder you are currently working in.
 ## Safety Tips
 
 Before running a saved build, check it:
