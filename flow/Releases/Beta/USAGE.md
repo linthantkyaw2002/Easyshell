@@ -35,9 +35,12 @@ flow run build-test
   - [Example 6: Edit a saved workflow](#example-6-edit-a-saved-workflow)
   - [Example 7: Run only selected steps](#example-7-run-only-selected-steps)
   - [Example 8: Remove and restore saved builds](#example-8-remove-and-restore-saved-builds)
+  - [Example 9: Run tester files from different directories](#example-9-run-tester-files-from-different-directories)
 - [Local Run Mode](#local-run-mode)
 - [Safety Tips](#safety-tips)
 - [Common Beginner Mistakes](#common-beginner-mistakes)
+- [Recommended Beginner Workflows](#recommended-beginner-workflows)
+- [Getting Help](#getting-help)
 
 ---
 
